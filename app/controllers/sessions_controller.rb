@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_username params[:username].downcase
-    if user && user.authenticate(params[:password])
+    user = User.find_by_username params[:session][:username].downcase
+    unless user && user.authenticate(params[:session][:password])
       flash[:success] = "Bienvenido, es hora de compartir"
       session[:user_id] = user.id
       redirect_to root_url

@@ -36,7 +36,7 @@
             <%= render 'post', content: post.content, kind: post.kind %>
           <br><br>
           <p>
-            Publicado por <%= post.user.username %> ( <%= post.created_at.strftime("%d-%m-%Y %I:%M%p") %>)
+            Publicado por <%= post.user.username %> ( <%= post.created_at.strftime("%d-%m-%Y %I:%M%p") %> )
           </p>
         </div>
       </div>
@@ -45,7 +45,23 @@
   <% end %>
 </div>
 
-<br><br><br><br>
+<br><br>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <%= link_to "Cerrar sesión", logout_path, class: "btn btn-lg btn-danger"%>
+        </div>
+        <% if admin? %>
+          <div class="btn-group" role="group">
+            <%= link_to "Nuevo Usuario", new_user_path, class: "btn btn-lg btn-primary"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<br><br>
+
 
 <style type="text/css">
   h3, h4, p {

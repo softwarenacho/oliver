@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find session[:user_id]
   end
+  def admin?
+    current_user.admin == true
+  end
+  helper_method :admin?, :current_user
 end

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user, url: {action: 'create'} do |f| %>
+      <div class="form-group text-center">
+        <br>
+        <%= f.label :name, "Nombre completo" %>
+        <%= f.text_field :name, placeholder: "ej. Nacho Betancourt", class: "form-control" %>
+        <br>
+        <%= f.label :username, "Nombre de usuario" %>
+        <%= f.text_field :username, placeholder: "ej. nachobe", class: "form-control" %>
+        <br>
+        <%= f.label :photo, "Link a tu foto" %>
+        <%= f.text_field :photo, placeholder: "ej. http://ejemplo.com/foto.png", class: "form-control" %>
+        <br>
+        <%= f.label :email, "Correo electronico" %>
+        <%= f.email_field :email, placeholder: "ej. trsgarp@gmail.com", class: "form-control" %>
+        <br>
+        <%= f.label :password, "Contraseña" %>
+        <%= f.password_field :password, placeholder: "**********", class: "form-control" %>
+        <br>
+        <%= f.label :password_confirmation, "Repita su contraseña" %>
+        <%= f.password_field :password_confirmation, placeholder: "**********", class: "form-control" %>
+        <br>
+        <%= radio_button_tag :admin, class: "form-control" %>
+        <%= f.label :admin, "Admin?" %>
+        <br><br>
+        <%= f.submit "Entrar", class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style type="text/css">
+
+</style>

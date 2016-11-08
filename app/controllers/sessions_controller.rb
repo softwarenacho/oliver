@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
 
   def login
-    redirect_to home_path if session[:user_id]
+    @posts = Post.all.order(created_at: :desc)
+    render 'home' if session[:user_id]
   end
 
   def create
-    user = User.find_by_username params[:session][:username].downcase
-    unless user && user.authenticate(params[:session][:password])
-      flash[:success] = "Bienvenido, es hora de compartir"
+    user = User.find_by_username params[:session]["username"].downcase
+    if user && user.authenticate(params[:session]["password"])
       session[:user_id] = user.id
       redirect_to root_url
     else

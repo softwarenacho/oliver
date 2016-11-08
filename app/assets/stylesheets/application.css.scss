@@ -17,3 +17,35 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.parallax {
+    /* The image used */
+    background-image: url('/assets/bg.jpg');
+
+    /* Set a specific height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2, h3, p {
+  color: whitesmoke !important;
+  text-shadow: 1px 1px 2px black;
+}
+label {
+  color: whitesmoke !important;
+  font-size: 30px;
+  text-shadow: 1px 1px 2px black;
+}
+.container {
+  background-color: #56B7E6;
+  border-radius: 25px;
+}
+.alert-div{
+  margin-left: 12.5%;
+  width: 75%;
+}

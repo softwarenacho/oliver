@@ -10,15 +10,28 @@
   <div class="col-md-4 col-md-offset-4 text-center">
     <%= form_for(:session, url: create_path) do |f| %>
       <div class="form-group">
-        <%= f.label :username %>:
+        <%= f.label :username, "Nombre de usuario" %>
         <%= f.text_field :username, placeholder: "Nombre de usuario", class: "form-control" %>
         <br>
-        <%= f.label :password %>:
+        <%= f.label :password, "Contraseña" %>
         <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
         <br>
-        <%= f.submit "Entrar", class: "btn btn-lg btn-success" %>
+        <%= f.submit "Entrar", class: "btn btn-lg btn-primary" %>
       </div>
     <% end %>
 
   </div>
 </div>
+
+<style type="text/css">
+  .jumbotron {
+    background: url('/assets/background.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .btn {
+    font-size: 30px;
+  }
+</style>

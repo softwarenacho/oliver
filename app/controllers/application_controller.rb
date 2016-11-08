@@ -10,4 +10,7 @@ class ApplicationController < ActionController::Base
     flash[:danger] = "No tienes los permisos necesarios para acceder a esta sección" unless current_user.id == params[:id]
     redirect_to(root_url) unless current_user.id == params[:id]
   end
+  def current_user
+    User.find session[:user_id]
+  end
 end

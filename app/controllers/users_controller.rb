@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :admin_user, only: [:new, :create, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  # before_action :admin_user, only: [:new, :create, :destroy]
+  # before_action :correct_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save && params[:password] == params[:password_confirmation]
         flash[:success] = "Usuario creado exitosamente"
         redirect_to @user
     else

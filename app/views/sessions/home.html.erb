@@ -33,14 +33,8 @@
           <h3>
             <%= post.title %>
           </h3>
-          <% case post.kind %>
-            <% when "txt" %>
-              <%= render 'txt', content: post.content %>
-            <% when "img" %>
-              <%= render 'img', content: post.content %>
-            <% when "vid" %>
-              <%= render 'vid', content: post.content %>
-          <% end %>
+            <%= render 'post', content: post.content, kind: post.kind %>
+          <br><br>
           <p>
             Publicado por <%= post.user.username %> ( <%= post.created_at.strftime("%d-%m-%Y %I:%M%p") %>)
           </p>

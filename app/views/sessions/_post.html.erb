@@ -1,0 +1,24 @@
+<% case kind %>
+  <% when "txt" %>
+    <h4>
+      <%= content %>
+    </h4>
+  <% when "img" %>
+    <div class="text-center">
+      <%= image_tag(content, class: "img-responsive text-center") %>
+    </div>
+  <% when "vid" %>
+    <%= embed(content) %>
+<% end %>
+
+<style type="text/css">
+  img{
+    width: 50%;
+    margin-left: 25%;
+    min-height: 400px;
+  }
+  iframe{
+    width: 70%;
+    min-height: 400px;
+  }
+</style>

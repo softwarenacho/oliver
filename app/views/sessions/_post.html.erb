@@ -1,15 +1,30 @@
-<% case kind %>
-  <% when "txt" %>
-    <h4>
-      <%= content %>
-    </h4>
-  <% when "img" %>
-    <div class="text-center">
-      <%= image_tag(content, class: "img-responsive text-center") %>
+<br>
+<div class="col-md-12 text-center">
+  <div class="thumbnail">
+    <div class="caption">
+      <h3>
+        <%= post.title %>
+      </h3>
+        <% case post.kind %>
+          <% when "txt" %>
+            <h4>
+              <%= post.content %>
+            </h4>
+          <% when "img" %>
+            <div class="text-center">
+              <%= image_tag(post.content, class: "img-responsive text-center") %>
+            </div>
+          <% when "vid" %>
+            <%= embed(post.content) %>
+        <% end %>
+      <br><br>
+      <p>
+        Publicado por <%= post.user.username %> ( <%= post.created_at.strftime("%d-%m-%Y %I:%M%p") %> )
+      </p>
     </div>
-  <% when "vid" %>
-    <%= embed(content) %>
-<% end %>
+  </div>
+</div>
+<br>
 
 <style type="text/css">
   img{

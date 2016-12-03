@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'create' => "sessions#create"
   get 'post/:type' => "posts#post", as: "post"
   post 'post/:type' => "posts#create"
+  delete 'post/:id/delete' => "posts#destroy", as: "delete"
 
   resources :users
 

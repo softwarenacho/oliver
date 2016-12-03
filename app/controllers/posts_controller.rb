@@ -12,4 +12,11 @@ class PostsController < ApplicationController
     @post = Post.create(title: params[:post][:title], content: params[:post][:content], user_id: @user.id, kind: params[:post][:kind])
   end
 
+  def destroy
+    @post = Post.find params[:id]
+    @post.destroy
+    flash[:danger] = "Post borrado :("
+    redirect_to home_path
+  end
+
 end

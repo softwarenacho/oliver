@@ -20,6 +20,9 @@
       <br><br>
       <p>
         Publicado por <%= post.user.username %> ( <%= post.created_at.strftime("%d-%m-%Y %I:%M%p") %> )
+        <% if current_user == post.user %>
+          <%= link_to "", delete_path(id: post.id), method: :delete, data: { confirm: "¿Seguro?"} ,class: "glyphicon glyphicon-trash btn btn-warning" %>
+        <% end %>
       </p>
     </div>
   </div>
